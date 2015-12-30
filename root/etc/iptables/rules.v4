@@ -7,7 +7,7 @@
 -A OUTPUT -d 10.0.2.0/24 -j ACCEPT
 -A OUTPUT -d 192.168.64.0/24 -j ACCEPT
 -A OUTPUT -d 127.0.0.0/8 -j ACCEPT
--A OUTPUT -m owner --uid-owner 109 -j ACCEPT
+-A OUTPUT -m owner --uid-owner 108 -j ACCEPT
 -A OUTPUT -j REJECT --reject-with icmp-port-unreachable
 COMMIT
 # Completed on Thu Dec 17 17:28:33 2015
@@ -22,7 +22,7 @@ COMMIT
 -A PREROUTING -i eth1 -p udp -m udp --dport 53 -j REDIRECT --to-ports 53
 -A PREROUTING -i eth1 -p tcp -m tcp --tcp-flags FIN,SYN,RST,ACK SYN -j REDIRECT --to-ports 9040
 -A OUTPUT -o lo -j RETURN
--A OUTPUT -m owner --uid-owner 109 -j RETURN
+-A OUTPUT -m owner --uid-owner 108 -j RETURN
 -A OUTPUT -p udp -m udp --dport 53 -j REDIRECT --to-ports 53
 -A OUTPUT -d 10.0.2.0/24 -j RETURN
 -A OUTPUT -d 192.168.64.0/24 -j RETURN
